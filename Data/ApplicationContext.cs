@@ -15,11 +15,11 @@ namespace Curso.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            const String strconnection="Data source=(localdb)\\mssqlocaldb; Initial Catalog=C002; Integrated Security = True;";
+            const String strconnection="Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C002;Integrated Security=True;";
             optionsBuilder
                  .UseSqlServer(strconnection)
                  .EnableSensitiveDataLogging()
-                 .LogTo(Console.WriteLine, LogLevel.Information)
+                 .LogTo(Console.WriteLine, LogLevel.Information);
         }
     }
 }
