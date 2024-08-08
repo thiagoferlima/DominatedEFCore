@@ -13,7 +13,8 @@ namespace DominandoEFCore
     {
         static void Main(string[] args)
         {
-            MigracoesPendentes();
+            ScripGeralDoBancoDeDados();
+           // MigracoesPendentes();
           //EnsureCreatedAndDeleted();
           //GapDoEnsureCretead();
           //HealthCheckBancoDeDados();
@@ -22,6 +23,13 @@ namespace DominandoEFCore
           //GerenciadorEstadoDaConexao(false);
           //_count=0;
           //GerenciadorEstadoDaConexao(true);
+        }
+        static void ScripGeralDoBancoDeDados()
+        {
+            using var db = new Curso.Data.ApplicationContext();
+            var script = db.Database.GenerateCreateScript();
+
+            System.Console.WriteLine(script);
         }
 
         static void MigracoesPendentes()
