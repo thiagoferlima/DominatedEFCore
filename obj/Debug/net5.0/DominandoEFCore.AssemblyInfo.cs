@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DominandoEFCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3240b77431990899b0696812a2f68c2389579b7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fc37da61860abd651251e210ad313bc974002c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("DominandoEFCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DominandoEFCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using System.Runtime.ConstrainedExecution;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -10,7 +12,22 @@ namespace DominandoEFCore
         static void Main(string[] args)
         {
           //EnsureCreatedAndDeleted();
-          GapDoEnsureCretead();
+          //GapDoEnsureCretead();
+          HealthCheckBancoDeDados();
+        }
+        static void HealthCheckBancoDeDados()
+        {
+            using var db = new Curso.Data.ApplicationContext();
+            var canConnect = db.Database.CanConnect();
+
+            if(canConnect)
+            {;
+                Console.WriteLine("Posso me conectar");
+            }
+            else
+            {
+                Console.WriteLine("Não posso me conectar");
+            }
         }
         static void EnsureCreatedAndDeleted()
         {
