@@ -13,14 +13,28 @@ namespace DominandoEFCore
     {
         static void Main(string[] args)
         {
+            MigracoesPendentes();
           //EnsureCreatedAndDeleted();
           //GapDoEnsureCretead();
           //HealthCheckBancoDeDados();
-          new Curso.Data.ApplicationContext().Departamentos.AsNoTracking().Any();
-          _count=0;
-          GerenciadorEstadoDaConexao(false);
-          _count=0;
-          GerenciadorEstadoDaConexao(true);
+          //new Curso.Data.ApplicationContext().Departamentos.AsNoTracking().Any();
+          //_count=0;
+          //GerenciadorEstadoDaConexao(false);
+          //_count=0;
+          //GerenciadorEstadoDaConexao(true);
+        }
+
+        static void MigracoesPendentes()
+        {
+            using var db = new Curso.Data.ApplicationContext();
+            var migracoesPendentes = db.Database.GetPendingMigrations();
+
+            System.Console.WriteLine($"Total: {migracoesPendentes.Count()}");
+
+            foreach(var migracao in migracoesPendentes)
+            {
+                System.Console.WriteLine($"Migração: {migracao}");
+            }
         }
         static void ExecuteSQL()
         {

@@ -4,9 +4,11 @@ C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\DominandoEFCore.runtimeconfig.json
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\DominandoEFCore.runtimeconfig.dev.json
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\DominandoEFCore.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\DominandoEFCore.pdb
+C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Humanizer.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Curso EF core\Curso\Curso\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
