@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -13,7 +15,34 @@ namespace DominandoEFCore
         {
           //EnsureCreatedAndDeleted();
           //GapDoEnsureCretead();
-          HealthCheckBancoDeDados();
+          //HealthCheckBancoDeDados();
+          new Curso.Data.ApplicationContext().Departamentos.AsNoTracking().Any();
+          _count=0;
+          GerenciadorEstadoDaConexao(false);
+          _count=0;
+          GerenciadorEstadoDaConexao(true);
+        }
+
+        static int _count;
+        static void GerenciadorEstadoDaConexao(bool GerenciadorEstadoDaConexao)
+        {
+            using var db = new Curso.Data.ApplicationContext();
+            var time = System.Diagnostics.Stopwatch.StartNew();
+
+            var conexao = db.Database.GetDbConnection();
+            conexao.StateChange += (_, __) => ++ _count;
+            if(GerenciadorEstadoDaConexao)
+            {
+                conexao.Open();
+            }
+            for(var i = 0; i < 200; i++)
+            {
+                db.Departamentos.AsTracking().Any();
+            }
+            time.Stop();
+            var menssagem = $"tempo: {time.Elapsed.ToString()}, {GerenciadorEstadoDaConexao}, Contador: {_count}";
+
+            System.Console.WriteLine(menssagem);
         }
         static void HealthCheckBancoDeDados()
         {
