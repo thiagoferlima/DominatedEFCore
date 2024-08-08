@@ -22,6 +22,30 @@ namespace DominandoEFCore
           _count=0;
           GerenciadorEstadoDaConexao(true);
         }
+        static void ExecuteSQL()
+        {
+           
+            using var db = new Curso.Data.ApplicationContext();
+            //Primeira opcao
+            using(var cmd = db.Database.GetDbConnection().CreateCommand())
+            {
+                cmd.CommandText = "SELECT 1"; 
+                cmd.ExecuteNonQuery();
+            }
+            //segunda opcao
+            var descricao = "Teste";
+            db.Database.ExecuteSqlRaw("update departamentos set descricao={0} where id=1", descricao);
+           
+           //Terceira opcao
+            db.Database.ExecuteSqlInterpolated($"update departamentos set descricao={0} where id=1");
+           
+            
+
+            
+
+            
+
+        }
 
         static int _count;
         static void GerenciadorEstadoDaConexao(bool GerenciadorEstadoDaConexao)
